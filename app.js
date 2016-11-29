@@ -1,3 +1,5 @@
+require('date-utils');
+
 const app = require('express')();
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
@@ -10,8 +12,11 @@ app.get(`/`, (req, res) => {
 io.on('connection', (socket) => {
     console.log('a user connected');
     socket.on('chat message', (msg) => {
-        console.log('message: ' + msg);
-        io.emit('chat message', msg);
+        var dt = new Date();
+        var formatted = dt.toFormat("YYYY/MM/DD HH24:MI:SS");
+        var str = 'message[' + formatted +'] ' + msg
+        console.log(str);
+        io.emit('chat message', str);
     });
 });
 
