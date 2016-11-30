@@ -8,7 +8,7 @@ const io = require('socket.io')(http)
 const PORT = process.env.PORT || 3000
 
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/index.html')
+    res.sendFile(__dirname + '/../index.html')
 })
 
 io.on('connection', (socket) => {
@@ -23,5 +23,6 @@ io.on('connection', (socket) => {
 });
 
 http.listen(PORT, () => {
+    console.log('dirname: ' + __dirname)
     console.log(`listening on *:${PORT}`)
 })
