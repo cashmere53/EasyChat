@@ -7,5 +7,11 @@
     "date-utils": "^1.2.21",
     "express": "^4.14.0",
     "socket.io": "^1.7.1"
+  },
+  "devDependencies": {
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
+    "gulp-pug": "^3.1.0",
+    "gulp-stylus": "^2.6.0"
   }
 }
